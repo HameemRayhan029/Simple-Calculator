@@ -5,16 +5,27 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("***Enter your numbers in order of calculation.***");
+        System.out.println("");
         System.out.println("***Enter each operation after entering one number.***");
+        System.out.println("");
         System.out.println("***Calculations are in the way where the first number being given will be the on the left side of the calculation***");
+        System.out.println("");
         System.out.println("***Integers number must be used.***");
+        System.out.println("");
         System.out.println("***Number of inputs must be more than 1.***");
+        System.out.println("");
+        System.out.println("Note that this calculator does not follow BODMAS rule.");
+        System.out.println("");
+
 
         while (true) {
+
             String operator;
             int total = 0;
-            System.out.println("How many numbers you want to input?");
+
+            System.out.print("How many numbers you want to input? ");
             int size = sc.nextInt();
+            sc.nextLine();
             if (size < 2) {
                 System.out.println("Unknown command.");
                 continue;
@@ -23,9 +34,14 @@ public class Main {
 
             System.out.print("Enter your number: ");
             arr_num[0] = sc.nextInt();
+            sc.nextLine();
 
-            System.out.println("Enter your operation of choice (+, -, *, /): ");
+            System.out.print("Enter your operation of choice (+, -, *, /): ");
             operator = sc.nextLine();
+
+            System.out.print("Enter your number: ");
+            arr_num[1] = sc.nextInt();
+            sc.nextLine();
 
             if (operator.equals("+")) {
                 total = arr_num[0] + arr_num[1];
@@ -35,31 +51,28 @@ public class Main {
                 total = arr_num[0] * arr_num[1];
             } else if (operator.equals("/")) {
                 total = arr_num[0] / arr_num[1];
-            } else {
-                System.out.println("Unknown command.");
-                continue;
+            }else{
+                System.out.println("Unknown command");
             }
-
-            System.out.print("Enter your number: ");
-            arr_num[1] = sc.nextInt();
 
             if (size > 2) {
                 for (int i = 2; i < size; i++) {
 
-                    System.out.println("Enter your operation of choice (+, -, *, /): ");
+                    System.out.print("Enter your operation of choice (+, -, *, /): ");
                     operator = sc.nextLine();
 
                     System.out.print("Enter your number: ");
                     arr_num[i] = sc.nextInt();
+                    sc.nextLine();
 
                     if (operator.equals("+")) {
-                        total += arr_num[0];
+                        total += arr_num[i];
                     } else if (operator.equals("-")) {
-                        total -= arr_num[0];
+                        total -= arr_num[i];
                     } else if (operator.equals("*")) {
-                        total *= arr_num[0];
+                        total *= arr_num[i];
                     } else if (operator.equals("/")) {
-                        total /= arr_num[0];
+                        total /= arr_num[i];
                     } else {
                         System.out.println("Unknown command.");
                         break;
